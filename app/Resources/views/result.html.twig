@@ -3,21 +3,68 @@
 {% block body %}
      
       
+<div class="container">
+       
+       
     
-   <div class="container">
-       
-       
-    <h3>Modif Form</h3>
 
-    <div class="well">
-        {{ form(form) }}  <div id="textarea_feedback"></div>
+<div class="well">
         
+  {{ form(form) }}  
       
-   
-   <a class="btn btn-danger" href="#" onclick="HTMLtoPDF()" role="button">Download PDF</a>
-    
-        
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+ {# Génération du label + error + widget pour un champ. #}
+  {{ form_row(form.title) }}
+  
+  {# Génération manuelle et éclatée : #}
+  <div id="form-title" >  
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.title) }}
+
+    <div class="col-sm-10">
+      
+      {# Génération de l'input. #}
+      {{ form_widget(form.title, {'attr': {'class': 'form-title'}}) }}
+      {{ form_label(form.title, "77", {'label_attr': {'class': 'chars'}}) }}
+    </div>
+  </div>
+
+  {#  champ description #}
+  <div id="form-description">
+    
+    {{ form_errors(form.description) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+       {{ form_label(form.title, "156", {'label_attr': {'class': 'chars1'}}) }}
+    </div>
+  </div>
+  {#  champ url #}
+ <div id="form-url">
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.url) }}
+
+    <div class="col-sm-12">
+      {# Génération de l'input. #}
+      {{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+   
+</div>
+  
+  
      {# and h1 is :{{ h1}}<br><br><br>
 
   
@@ -31,14 +78,11 @@ and alt is :
         <li><em>no alt found</em></li>
     {% endfor %}
 </ol>#}
-  
-      
-      
- 
+  <a style="text-align: center;" class="btn btn-danger" href="#" onclick="HTMLtoPDF()" role="button">Download PDF</a>
 <!-- BEGIN GOOGLE CONTENT -->
+
 <div id="google-content">
 <div id="gcontainer">
-<div id="gborder">
 <div id="gsr">
 <div id="out_toplinks">
 <!-- BEGIN TOP LINKS -->
@@ -353,11 +397,8 @@ and alt is :
 
     <div id="xjsd"></div>
     <div id="xjsi"></div>
-
 </div>
-
-            </div>
-        </div>
+      </div>
     </div>
 </div>
        
@@ -367,7 +408,7 @@ and alt is :
 </div> 
 <!-- END GOOGLE CONTENT -->
 
-</div>
+
 <!-- here we call the function that makes PDF -->
 	
         

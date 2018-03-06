@@ -6,7 +6,8 @@ $(function () {
     var theOutputKeyDown = $("#theOutputKeyDown");
     var theOutputKeyUp = $("#theOutputKeyUp");
     var theOutputFocusOut = $("#theOutputFocusOut");
-
+   
+  
     theText.keydown(function (event) {
         keyReport(event, theOutputKeyDown);
     });
@@ -40,6 +41,7 @@ $(function () {
         // show field content
         theOutputText.text(theText.val());
     }
+   
 });
 
 $(function () {
@@ -135,3 +137,25 @@ var pdf = new jsPDF('p', 'pt', 'a4');
  });		
 }
 
+function Length(){
+var maxLength = 77;
+$('#form_title').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength-length;
+  $('.chars control-label required').text(length);
+  
+});
+
+var maxLength1 = 156;
+$('#form_description').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength1-length;
+  $('.chars1 control-label required').text(length);
+});
+}
+
+function Length(){
+    
+    
+    
+}

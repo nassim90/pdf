@@ -48,6 +48,7 @@ class DefaultController extends Controller
     
     public function titleAction(Request $request)
     {
+
         $session = $request->getSession();
         $url = $session->get('url');
         
