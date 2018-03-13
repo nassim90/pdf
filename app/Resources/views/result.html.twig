@@ -29,7 +29,7 @@
       
       {# Génération de l'input. #}
       {{ form_widget(form.title, {'attr': {'class': 'form-title'}}) }}
-      {{ form_label(form.title, "77", {'label_attr': {'class': 'chars'}}) }}
+      
     </div>
   </div>
 
@@ -39,7 +39,7 @@
     {{ form_errors(form.description) }}
     <div class="col-sm-10">
       {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-       {{ form_label(form.title, "156", {'label_attr': {'class': 'chars1'}}) }}
+       
     </div>
   </div>
   {#  champ url #}
@@ -195,11 +195,10 @@ and alt is :
                                                     <tbody>
                                                       
                                                     </tbody> 
-                                                    {% for tag in tags %} 
-                                                        {{ tag.description   }}
-                                                    {% else %} 
-                                                    {{ tags  }}
-                                                    {% endfor %}  
+                                                    
+                                                  
+                                                    {{ tags |json_encode() |trim('"')  }}
+                                                
                                                 </table>
                                             </div>
                                             <span id="out_datesnip"><span class="mofo_date"><span id="out_date"></span></span><span class="mofo_snippet"></span></span>
@@ -226,11 +225,10 @@ and alt is :
                                             
                                                 <table border="0" cellpadding="0" cellspacing="0" class="ti" style="height:px;width:px">
                                                     
-                                                    {% for tag in tags %} 
-                                                        {{ tag.description   }}
-                                                    {% else %} 
-                                                    {{ tags  }}
-                                                    {% endfor %}  
+                                                    
+                                               
+                                                    {{ tags  |json_encode() |trim('"')   }}
+                                                 
                                                 </table>
                                             </div>
                                             <span id="out_datesnip"><span class="mofo_date"><span id="out_date"></span></span><span class="mofo_snippet"></span></span>
@@ -241,25 +239,8 @@ and alt is :
                             </li>
                         </ol>
                     </div>
-                    <!--
-                    <div id="brs" style="clear:both;margin-bottom:17px;overflow:hidden">
-                        <div class="med" style="text-align:left">
-                            Searches related to <em>seo</em>
-                        </div>
-                        <div class="brs_col">
-                            <p><a href="#" onclick="return false;">seo <b>basics</b></a></p>
-                            <p><a href="#" onclick="return false;">seo <b>tips</b></a></p>
-                            <p><a href="#" onclick="return false;">seo <b>career</b></a></p>
-                            <p><a href="#" onclick="return false;">seo <b>tools</b></a></p>
-                        </div>
-                        <div class="brs_col">
-                            <p><a href="#" onclick="return false;"><b>google</b> seo</a></p>
-                            <p><a href="#" onclick="return false;">seo <b>company</b></a></p>
-                            <p><a href="#" onclick="return false;">seo <b>forums</b></a></p>
-                            <p><a href="#" onclick="return false;">seo <b>articles</b></a></p>
-                        </div>
-                    </div>
-                    -->
+                    
+                    
 
                 </div>
             </div>

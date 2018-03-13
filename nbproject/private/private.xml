@@ -6,6 +6,7 @@
             <file>file:/C:/xampp/htdocs/my_project/app/Resources/views/result.html.twig</file>
             <file>file:/C:/xampp/htdocs/my_project/src/AppBundle/Entity/Description.php</file>
             <file>file:/C:/xampp/htdocs/my_project/web/js/jquery2.js</file>
+            <file>file:/C:/xampp/htdocs/my_project/src/AppBundle/Form/FirstType.php</file>
             <file>file:/C:/xampp/htdocs/my_project/web/vendor/jquery/jquery.slim.min.js</file>
             <file>file:/C:/xampp/htdocs/my_project/app/config/config_test.yml</file>
             <file>file:/C:/xampp/htdocs/my_project/web/vendor/js/jquery-1.10.2.min.js</file>
@@ -25,6 +26,7 @@
             <file>file:/C:/xampp/htdocs/my_project/composer.json</file>
             <file>file:/C:/xampp/htdocs/my_project/src/AppBundle/Controller/DefaultController.php</file>
             <file>file:/C:/xampp/htdocs/my_project/app/config/config_prod.yml</file>
+            <file>file:/C:/xampp/htdocs/my_project/src/.htaccess</file>
             <file>file:/C:/xampp/htdocs/my_project/src/AppBundle/Repository/UrlRepository.php</file>
             <file>file:/C:/xampp/htdocs/my_project/app/Resources/views/base.html.twig</file>
             <file>file:/C:/xampp/htdocs/my_project/src/AppBundle/Form/ModifType.php</file>
@@ -34,6 +36,7 @@
             <file>file:/C:/xampp/htdocs/my_project/web/vendor/jquery/jquery.min.js</file>
             <file>file:/C:/xampp/htdocs/my_project/web/vendor/jquery/jquery.js</file>
             <file>file:/C:/xampp/htdocs/my_project/app/config/parameters.yml</file>
+            <file>file:/C:/xampp/htdocs/my_project/vendor/autoload.php</file>
             <file>file:/C:/xampp/htdocs/my_project/app/config/security.yml</file>
             <file>file:/C:/xampp/htdocs/my_project/app/config/config_dev.yml</file>
             <file>file:/C:/xampp/htdocs/my_project/web/css/font-awesome.css</file>

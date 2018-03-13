@@ -10,6 +10,9 @@ use AppBundle\Entity\Description;
 use AppBundle\Form\FirstType;
 use AppBundle\Form\ModifType;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Sunra\PhpSimple\HtmlDomParser;
+use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\BrowserKit\Response;
 
 class DefaultController extends Controller
 {
@@ -53,9 +56,15 @@ class DefaultController extends Controller
         $url = $session->get('url');
         
         
-        $data = (string) $url;
-        $data = file_get_contents($url);
         
+        $ch = curl_init();
+        curl_setopt ($ch, CURLOPT_URL, $url);
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+        $data= curl_exec($ch);
+        curl_close($ch);
+
+      
+
         // print title
         $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $data, $matches) ? $matches[1] : null;
         
@@ -63,10 +72,29 @@ class DefaultController extends Controller
         $h1= preg_match('/<h1[^>]*>(.*?)<\/h1>/ims', $data, $matches) ? $matches[1] : null;
         
         
-        //print meta
-        
-        $tags ['description'] = get_meta_tags($url);
-        
+        //print description
+        $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/', ($data), $matches); // get all the meta tags with name and content
+        if (stripos(strtolower($data),$data) !== false) {
+    // 'see details' is in the $line
+          }
+        foreach ($matches[1] as $key => $value){
+            if ($value == 'description'){
+                $description_key =  $key;
+            }
+        }
+        if(isset($description_key))
+           $tags = $matches[2][$description_key];
+        else
+         
+          $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/', strtolower($data), $matches); // get all the meta tags with name and content
+       
+        foreach ($matches[1] as $key => $value){
+            if ($value == 'description'){
+                $description_key =  $key;
+            }
+        }
+        if(isset($description_key))
+           $tags = $matches[2][$description_key];
         
         //print img
         
@@ -99,7 +127,7 @@ class DefaultController extends Controller
         $session->set('url', $url);
         $session->set('tags', $tags);
         $session->set('title', $title);
-        
+
         return $this->render('result.html.twig', array(
             'url' => $url,
             'title' => $title,
@@ -109,6 +137,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
             'base_dir' => $this->get('kernel')->getRootDir() . '/../web' . $request->getBasePath()
         ));
+        
       
     }
     

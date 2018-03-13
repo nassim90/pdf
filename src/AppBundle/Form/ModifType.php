@@ -14,19 +14,14 @@ class ModifType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title',TextareaType::class, array(
+        $builder->add('title',TextareaType::class)
     
-    'data' => 'This is an Example of a Title Tag that is Seventy Characters in Length'
-))
-                ->add('description',TextareaType::class, array(
-    
-    'data' => 'Here is an example of what a snippet looks like in Google\'s SERPs. The content that appears here is usually taken from the Meta Description tag if relevant.'
-))
+   
+
+                ->add('description',TextareaType::class)
       
-                ->add('url',UrlType::class, array(
-    'label' => 'Url',
-    
-)) ;
+                ->add('url',UrlType::class);
+ 
     }
     /**
      * {@inheritdoc}
