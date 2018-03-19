@@ -73,9 +73,10 @@ class DefaultController extends Controller
         
         
         //print description
-        $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/', ($data), $matches); // get all the meta tags with name and content
+        $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/i', $data, $matches); // get all the meta tags with name and content
+        
         if (stripos(strtolower($data),$data) !== false) {
-    // 'see details' is in the $line
+        // 'see details' is in the $line
           }
         foreach ($matches[1] as $key => $value){
             if ($value == 'description'){
@@ -84,9 +85,9 @@ class DefaultController extends Controller
         }
         if(isset($description_key))
            $tags = $matches[2][$description_key];
-        else
+        /* else
          
-          $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/', strtolower($data), $matches); // get all the meta tags with name and content
+          $count = preg_match_all('/\<meta.name="(\w*)".content="(.*)"/i', strtolower($data), $matches); // get all the meta tags with name and content
        
         foreach ($matches[1] as $key => $value){
             if ($value == 'description'){
@@ -94,7 +95,9 @@ class DefaultController extends Controller
             }
         }
         if(isset($description_key))
-           $tags = $matches[2][$description_key];
+           $tags = $matches[2][$description_key]; 
+
+                  */
         
         //print img
         

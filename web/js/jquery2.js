@@ -19,17 +19,9 @@ $(function () {
     function keyReport() {
 
         var newString = theText.val();
-       
- 
-    
-        if(theOutputText.width > 500){
-            // replace last characters with '...'
-            //newString = newString + '...';
-        }
         // show field content
         theOutputText.text(newString);
         
-
    }
    
 });
