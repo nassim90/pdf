@@ -17,16 +17,21 @@ $(function () {
 
    
     function keyReport() {
+
         var newString = theText.val();
-        
-        if(newString.width > 512){
+       
+ 
+    
+        if(theOutputText.width > 500){
             // replace last characters with '...'
-            newString = newString.width(512) + '...';
+            //newString = newString + '...';
         }
         // show field content
         theOutputText.text(newString);
         
-   } 
+
+   }
+   
 });
 $(function () {
     var theText = $('#form_url');
